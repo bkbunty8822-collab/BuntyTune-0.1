@@ -43,8 +43,8 @@ public:
         g.drawText ("AUTO KEY PITCH CORRECTION  |  NATURAL VOICE  |  COMPRESSOR  |  VOCAL ENHANCE", 24, 48, 690, 18, juce::Justification::centredLeft);
 
         // User-provided studio portrait embedded in the plugin resources.
-        auto portrait = juce::ImageCache::getFromMemory (BuntyTuneAssets::bunty_photo_jpg,
-                                                         BuntyTuneAssets::bunty_photo_jpgSize);
+        auto portrait = juce::ImageCache::getFromMemory (BinaryData::bunty_photo_jpg,
+                                                         BinaryData::bunty_photo_jpgSize);
         if (portrait.isValid())
         {
             const juce::Rectangle<float> photoBounds (742.0f, 8.0f, 64.0f, 64.0f);

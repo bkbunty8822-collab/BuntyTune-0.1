@@ -49,7 +49,7 @@ public:
         mix = mixAmt;
     }
 
-    void process (float** io, int numCh, int numSamples)
+    void process (float* const* io, int numCh, int numSamples)
     {
         const int nc = std::min (numCh, channels);
         for (int i = 0; i < numSamples; ++i)

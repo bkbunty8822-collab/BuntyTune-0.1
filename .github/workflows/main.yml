@@ -1,0 +1,27 @@
+
+name: Build BuntyTune Windows x64
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v5
+
+      - name: Configure project
+        run: cmake -S . -B build -A x64 -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build plugin
+        run: cmake --build build --config Release --parallel
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v5
+        with:
+          name: BuntyTune-Windows-x64
+          path: build/BuntyTune_artefacts/Release/
+          if-no-files-found: error

@@ -53,7 +53,7 @@ public:
         makeup = makeupDb; outGain = (float) std::pow (10.0, outDb / 20.0);
     }
 
-    void process (float** io, int nch, int n)
+    void process (float* const* io, int nch, int n)
     {
         nch = std::min (nch, 2);
         for (int i = 0; i < n; ++i)
